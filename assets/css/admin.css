@@ -1,0 +1,297 @@
+* {
+    box-sizing: border-box;
+}
+
+body.admin {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #0b0b0f;
+    color: #f5f5f5;
+}
+
+body.admin.auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #141428, #05050a);
+}
+
+a {
+    color: #ff4b4b;
+    text-decoration: none;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem 1.5rem;
+    background: linear-gradient(180deg, rgba(17, 17, 34, 0.9) 0%, rgba(11, 11, 15, 0.4) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(12px);
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+}
+
+.admin-header nav a {
+    margin-left: 1rem;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+.admin-header nav a:hover {
+    border-color: #ff4b4b;
+    background: rgba(255, 75, 75, 0.1);
+}
+
+.admin-content {
+    padding: 2.5rem 3rem 4rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.stats {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.ingest {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.card {
+    background: linear-gradient(180deg, rgba(26, 26, 40, 0.85) 0%, rgba(14, 14, 22, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255, 75, 75, 0.08), rgba(75, 122, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+}
+
+.metric {
+    font-size: 2.8rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+.muted {
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.2rem;
+}
+
+.status-list,
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.status-list li,
+.category-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.55rem 0.8rem;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+}
+
+.status-list li.ok {
+    border-left: 4px solid #4bff88;
+}
+
+.status-list li.warn {
+    border-left: 4px solid #ff4b4b;
+}
+
+.form-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+label span {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.45rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(15, 15, 25, 0.9);
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #ff4b4b;
+    background: rgba(20, 20, 32, 0.95);
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff4b4b, #f67280);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    justify-self: start;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(255, 75, 75, 0.3);
+}
+
+.alert {
+    padding: 0.9rem 1.2rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.alert.success {
+    background: rgba(75, 255, 136, 0.15);
+    border: 1px solid rgba(75, 255, 136, 0.3);
+}
+
+.alert.error {
+    background: rgba(255, 75, 75, 0.15);
+    border: 1px solid rgba(255, 75, 75, 0.3);
+}
+
+.logs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.logs li {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: 'JetBrains Mono', 'SFMono-Regular', monospace;
+    font-size: 0.85rem;
+}
+
+.recent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+.recent-card {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 16px;
+    padding: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.recent-card .thumb {
+    position: relative;
+    padding-top: 56.25%;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.recent-card .meta h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.recent-card .open {
+    align-self: flex-start;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.recent-card .open:hover {
+    border-color: #ff4b4b;
+    background: rgba(255, 75, 75, 0.1);
+}
+
+.login-card {
+    background: rgba(15, 15, 25, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: min(320px, 90vw);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+    text-align: center;
+}
+
+.login-card h1 {
+    margin-top: 0;
+    letter-spacing: 0.08em;
+    font-size: 1.6rem;
+}
+
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .admin-content {
+        padding: 1.5rem;
+    }
+}
+
