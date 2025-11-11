@@ -1,4 +1,4 @@
-# NovaStream – AI-Powered YouTube Video CMS
+# NisamVideo – AI-Powered YouTube Video CMS
 
 NovaStream is a Netflix-inspired content management system that automatically discovers, enriches, and showcases YouTube videos without relying on the official YouTube Data API. A lightweight crawler scrapes the public website, persists metadata in SQLite, and an AI enrichment layer generates summaries and smart tags before presenting the catalogue in a cinematic UI.
 
